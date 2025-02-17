@@ -23,18 +23,6 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -57,16 +45,25 @@
                         <mutator>NEGATE_CONDITIONALS</mutator>
                     </mutators>
                     <targetClasses>
-                        <param>org.example.*</param>
+                        <param>org.example.NumberUtils</param>
                     </targetClasses>
                     <targetTests>
-                        <param>org.example.*</param>
+                        <param>org.example.NumberUtilsTest</param>
                     </targetTests>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version> <!-- Explicit version -->
                 <configuration>
                     <source>9</source>
                     <target>9</target>

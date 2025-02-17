@@ -1,13 +1,15 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Tag;
-import static org.example.NumberUtils.add;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class NumberUtilsTest {
+import static org.junit.Assert.*;
+import static org.example.NumberUtils.add;
+
+public class NumberUtilsTest {
     /**
      *
      * Step 1: understand the requirement, input type and output type
@@ -21,8 +23,7 @@ class NumberUtilsTest {
      *
      */
     @Test
-    @Tag("Specification Test")
-    void leftIsNull() {
+    public void leftIsNull() {
         // Test case for null left input.
         // The method should return null List.
         List<Integer> lst = add(null, List.of(3));
@@ -30,8 +31,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void rightIsNull() {
+    public void rightIsNull() {
         // Test case for null right input.
         // The method should return null List.
         List<Integer> lst = add(List.of(3), null);
@@ -39,8 +39,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void leftIsEmpty() {
+    public void leftIsEmpty() {
         // Test case for empty left input.
         // The method should return a List with the right Integer.
         List<Integer> lst = add(List.of(), List.of(3));
@@ -48,8 +47,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void rightIsEmpty() {
+    public void rightIsEmpty() {
         // Test case for empty right input.
         // The method should return a List with the left Integer.
         List<Integer> lst = add(List.of(3), List.of());
@@ -57,8 +55,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void singleInteger() {
+    public void singleInteger() {
         // Test case for single-digit inputs.
         // The method should return the sum of the left and right lists.
         List<Integer> lst = add(List.of(3), List.of(5));
@@ -66,8 +63,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void multipleIntegers() {
+    public void multipleIntegers() {
         // Test case for multi-digit inputs.
         // The method should return the sum of the left and right lists.
         List<Integer> left = new ArrayList<>();
@@ -81,8 +77,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void singleAndMultipleIntegers() {
+    public void singleAndMultipleIntegers() {
         // Test case for single-digit left input and multi-digit right input.
         // The method should return the sum of the left and right lists.
         List<Integer> left = new ArrayList<>();
@@ -95,8 +90,7 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Specification Test")
-    void largeIntegers() {
+    public void largeIntegers() {
         // Test case for large numbers.
         // The method should return the sum of the left and right lists.
         List<Integer> left = new ArrayList<>();
@@ -112,32 +106,28 @@ class NumberUtilsTest {
     }
 
     @Test
-    @Tag("Structural Test")
-    void rightIsNotInRange() {
+    public void rightIsNotInRange() {
         // Test case for right element not being in range 0-9
         assertThrows(IllegalArgumentException.class, () -> add(List.of(3), List.of(-2)));
         assertThrows(IllegalArgumentException.class, () -> add(List.of(3), List.of(10)));
     }
 
     @Test
-    @Tag("Structural Test")
-    void leftIsNotInRange() {
+    public void leftIsNotInRange() {
         // Test case for right element not being in range 0-9
         assertThrows(IllegalArgumentException.class, () -> add(List.of(-2), List.of(3)));
         assertThrows(IllegalArgumentException.class, () -> add(List.of(10), List.of(3)));
     }
 
     @Test
-    @Tag("Structural Test")
-    void carry() {
+    public void carry() {
         // Test case for carry of element
         List<Integer> lst = add(List.of(8), List.of(4));
         assertEquals(List.of(1,2), lst);
     }
 
     @Test
-    @Tag("Structural Test")
-    void leadingZeros() {
+    public void leadingZeros() {
         // Test case for removal of leading zeros
         List<Integer> left = new ArrayList<>();
         left.add(0);
