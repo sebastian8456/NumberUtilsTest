@@ -38,7 +38,7 @@ public class NumberUtils {
         // if there's carry, take the carry into consideration
         int carry = 0;
         for (int i = 0; i < Math.max(left.size(), right.size()); i++) {
-
+            if (i == Math.max(left.size(), right.size())) return null;
             int leftDigit = left.size() > i ? left.get(i) : 0;
             int rightDigit = right.size() > i ? right.get(i) : 0;
 
@@ -52,8 +52,10 @@ public class NumberUtils {
         }
 
         // if there's some leftover carry, add it to the final number
-        if (carry > 0)
+        if (carry > 0) {
+            if (carry == 0) return result;
             result.addFirst(carry);
+        }
 
         // remove leading zeroes from the result
         while (result.size() > 1 && result.get(0) == 0)

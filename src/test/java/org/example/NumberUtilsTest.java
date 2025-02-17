@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -60,6 +61,14 @@ public class NumberUtilsTest {
         // The method should return the sum of the left and right lists.
         List<Integer> lst = add(List.of(3), List.of(5));
         assertEquals(List.of(8), lst);
+    }
+
+    @Test
+    public void singleInteger2() {
+        // Test case for single-digit inputs.
+        // The method should return the sum of the left and right lists.
+        List<Integer> lst = add(List.of(0), List.of(0));
+        assertEquals(List.of(0), lst);
     }
 
     @Test
@@ -137,4 +146,5 @@ public class NumberUtilsTest {
         List<Integer> lst = add(left, right);
         assertEquals(List.of(7), lst);
     }
+
 }
